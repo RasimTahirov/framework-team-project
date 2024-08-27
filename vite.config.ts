@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
+import dotenv from 'dotenv'
 import react from "@vitejs/plugin-react-swc";
 import path from 'path'
+
+dotenv.config()
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,5 +20,8 @@ export default defineConfig({
   },
   server: {
     host: true
+  },
+  define: {
+    'process.env.API_URL': JSON.stringify(process.env.API_URL)
   }
 });
