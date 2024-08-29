@@ -5,7 +5,7 @@ import ToggleTheme from './ui/ToggleTheme';
 
 export const Header = () => {
 	return (
-		<header className={styles.container}>
+		<header className={styles.header}>
 			<Logo />
 			<ToggleTheme />
 		</header>

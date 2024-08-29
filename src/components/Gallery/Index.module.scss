@@ -1,0 +1,77 @@
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 31px;
+}
+
+.card {
+	position: relative;
+	overflow: hidden;
+	max-width: 392px;
+	max-height: 260px;
+}
+
+.card:hover .img {
+	transform: scale(110%);
+}
+
+.card:hover .titleAndDates {
+	transform: translateY(100%);
+}
+
+.card:hover .AuthorAndMuseum {
+	transform: translate(0, -100%);
+}
+
+.img {
+	object-fit: cover;
+	width: 392px;
+	height: 260px;
+  transition: ease 0.5s;
+}
+
+.info {
+	position: absolute;
+	background-color: #fff;
+	bottom: 0;
+	width: 300px;
+	height: 82px;
+}
+
+.paintingInfo {
+	display: grid;
+	gap: 8px;
+	padding: 20px;
+	transition: ease 0.5s;
+}
+
+.title {
+	color: rgb(18, 18, 18);
+	font-family: 'Cormorant SC';
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.date {
+	color: rgb(155, 75, 75);
+	font-family: 'Inter';
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.decorativeLine {
+	position: absolute;
+	border: 1px solid rgb(155, 75, 75);
+	transform: rotate(90deg);
+	width: 41px;
+	bottom: 49%;
+	left: -20px;
+}
+
+.AuthorAndMuseum {
+	transform: translate(-100%, -100%);
+}
