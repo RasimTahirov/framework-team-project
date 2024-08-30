@@ -17,3 +17,22 @@ export const getPaintings = async () => {
 		console.error('Не удалось загрузить картины', error);
 	}
 };
+
+export const getAuthors = async () => {
+	try {
+		const res = await baseApi.get('/authors');
+		return res.data;
+	} catch (error) {
+		console.error('Не удалось загрузить картины', error);
+	}
+};
+
+export const getLoactions = async () => {
+	try {
+		const res = await baseApi.get('/locations');
+		return res.data;
+	} catch (error) {
+		console.error('Не удалось загрузить картины', error);
+	}
+};
+

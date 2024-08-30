@@ -19,7 +19,7 @@
 	transform: translateY(100%);
 }
 
-.card:hover .AuthorAndMuseum {
+.card:hover .authorAndMuseum {
 	transform: translate(0, -100%);
 }
 
@@ -27,7 +27,7 @@
 	object-fit: cover;
 	width: 392px;
 	height: 260px;
-  transition: ease 0.5s;
+	transition: ease 0.5s;
 }
 
 .info {
@@ -51,9 +51,9 @@
 	font-size: 16px;
 	font-weight: 500;
 	text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .date {
@@ -72,6 +72,6 @@
 	left: -20px;
 }
 
-.AuthorAndMuseum {
+.authorAndMuseum {
 	transform: translate(-100%, -100%);
 }
