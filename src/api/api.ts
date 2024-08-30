@@ -27,7 +27,7 @@ export const getAuthors = async () => {
 	}
 };
 
-export const getLoactions = async () => {
+export const getLocations = async () => {
 	try {
 		const res = await baseApi.get('/locations');
 		return res.data;

@@ -2,7 +2,12 @@ import styles from '../Index.module.scss';
 
 import { fullImg } from '@/utils/utils';
 
-const Painting = ({ imageUrl, name }) => {
+type PaintingProps = {
+	imageUrl: string;
+	name: string
+}
+
+const Painting: React.FC<PaintingProps> = ({ imageUrl, name }) => {
 	return (
 		<img
 			className={styles.img}

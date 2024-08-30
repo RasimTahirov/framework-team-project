@@ -2,7 +2,7 @@ import styles from './Index.module.scss';
 
 import { useEffect, useState } from 'react';
 
-import { getAuthors, getLoactions, getPaintings } from '@/api/api';
+import { getAuthors, getLocations, getPaintings } from '@/api/api';
 
 import AuthorAndMuseum from './ui/AuthorAndMuseum';
 import TitleAndDate from './ui/TitleAndDates';
@@ -18,7 +18,7 @@ export const Gallery = () => {
 			const [paintingsData, authorsData, locationsData] = await Promise.all([
 				getPaintings(),
 				getAuthors(),
-				getLoactions(),
+				getLocations(),
 			]);
 
 			const authorsMap = authorsData.reduce((acc, author) => {
