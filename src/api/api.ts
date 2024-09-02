@@ -2,7 +2,7 @@ import {
 	TAuthor,
 	TLocations,
 	TPainting,
-} from '@/components/Gallery/types/types';
+} from '@/components/Content/types/types';
 import axios from 'axios';
 
 export const { API_URL } = process.env;
