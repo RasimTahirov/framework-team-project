@@ -4,8 +4,8 @@ import { fullImg } from '@/utils/utils';
 
 type PaintingProps = {
 	imageUrl: string;
-	name: string
-}
+	name: string;
+};
 
 const Painting: React.FC<PaintingProps> = ({ imageUrl, name }) => {
 	return (

@@ -7,11 +7,12 @@ import { getAuthors, getLocations, getPaintings } from '@/api/api';
 import AuthorAndMuseum from './ui/AuthorAndMuseum';
 import TitleAndDate from './ui/TitleAndDates';
 import Painting from './ui/Painting';
+import { TPainting } from './types/types';
 
 export const Gallery = () => {
-	const [paintings, setPaintings] = useState([]);
-	const [authors, setAuthors] = useState([]);
-	const [locations, setLocations] = useState([]);
+	const [paintings, setPaintings] = useState<TPainting[]>([]);
+	const [authors, setAuthors] = useState<Record<number, string>>([]);
+	const [locations, setLocations] = useState<Record<number, string>>([]);
 
 	useEffect(() => {
 		const loadPaintings = async () => {
@@ -21,15 +22,21 @@ export const Gallery = () => {
 				getLocations(),
 			]);
 
-			const authorsMap = authorsData.reduce((acc, author) => {
-				acc[author.id] = author.name;
-				return acc;
-			}, {});
+			const authorsMap = authorsData.reduce<Record<number, string>>(
+				(acc, author) => {
+					acc[author.id] = author.name;
+					return acc;
+				},
+				{}
+			);
 
-			const locationsMap = locationsData.reduce((acc, location) => {
-				acc[location.id] = location.location;
-				return acc;
-			}, {});
+			const locationsMap = locationsData.reduce<Record<number, string>>(
+				(acc, location) => {
+					acc[location.id] = location.location;
+					return acc;
+				},
+				{}
+			);
 
 			setAuthors(authorsMap);
 			setPaintings(paintingsData);
@@ -42,7 +49,7 @@ export const Gallery = () => {
 	return (
 		<div className={styles.container}>
 			{paintings.map(
-				({ authorId, created, id, imageUrl, locationId, name }) => (
+				({ id, authorId, created, imageUrl, locationId, name }) => (
 					<div className={styles.card} key={id}>
 						<Painting imageUrl={imageUrl} name={name} />
 						<div className={styles.info}>

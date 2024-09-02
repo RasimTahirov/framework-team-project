@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 type TitleAndDateProps = {
 	name: string;
-	created: string
-}
+	created: string;
+};
 
 const TitleAndDate: React.FC<TitleAndDateProps> = ({ name, created }) => {
 	return (

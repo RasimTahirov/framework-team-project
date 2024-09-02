@@ -1,3 +1,8 @@
+import {
+	TAuthor,
+	TLocations,
+	TPainting,
+} from '@/components/Gallery/types/types';
 import axios from 'axios';
 
 export const { API_URL } = process.env;
@@ -9,30 +14,32 @@ const baseApi = axios.create({
 	},
 });
 
-export const getPaintings = async () => {
+export const getPaintings = async (): Promise<TPainting[]> => {
 	try {
 		const res = await baseApi.get('/paintings');
 		return res.data;
 	} catch (error) {
 		console.error('Не удалось загрузить картины', error);
+		return [];
 	}
 };
 
-export const getAuthors = async () => {
+export const getAuthors = async (): Promise<TAuthor[]> => {
 	try {
 		const res = await baseApi.get('/authors');
 		return res.data;
 	} catch (error) {
 		console.error('Не удалось загрузить картины', error);
+		return [];
 	}
 };
 
-export const getLocations = async () => {
+export const getLocations = async (): Promise<TLocations[]> => {
 	try {
 		const res = await baseApi.get('/locations');
 		return res.data;
 	} catch (error) {
 		console.error('Не удалось загрузить картины', error);
+		return [];
 	}
 };
-
