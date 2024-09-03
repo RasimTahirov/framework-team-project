@@ -7,20 +7,10 @@ import { getAuthors, getLocations, getPaintings } from '@/api/api';
 import AuthorAndMuseum from './components/AuthorAndMuseum';
 import TitleAndDate from './components/TitleAndDates';
 import Painting from './components/Painting';
-// import { TPainting } from './types/types';
-// import Pagination from '../Pagination/Pagination';
 
 export const Gallery = ({ paintings, setPaintings }) => {
-	// const [paintings, setPaintings] = useState<TPainting[]>([]);
 	const [authors, setAuthors] = useState<Record<number, string>>([]);
 	const [locations, setLocations] = useState<Record<number, string>>([]);
-
-	// const [currentPage, setCurrentPage] = useState(1)
-	// const [countPaintings] = useState(6)
-
-	// const lastPageIndex = currentPage * countPaintings 
-	// const firstPageIndex = lastPageIndex - countPaintings
-	// const currentPages = paintings.slice(firstPageIndex, lastPageIndex)
 
 	useEffect(() => {
 		const loadPaintings = async () => {
@@ -58,7 +48,7 @@ export const Gallery = ({ paintings, setPaintings }) => {
 		<div className={styles.container}>
 			{paintings.map(
 				({ id, authorId, created, imageUrl, locationId, name }) => (
-					<div className={styles.card} key={id} >
+					<div className={styles.card} key={id}>
 						<Painting imageUrl={imageUrl} name={name} />
 						<div className={styles.info}>
 							<TitleAndDate name={name} created={created} />
