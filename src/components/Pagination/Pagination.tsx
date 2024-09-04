@@ -1,11 +1,28 @@
 import styles from './Index.module.scss';
 
-import test from '../../assets/image/icon/previous/next.svg';
-import test2 from '../../assets/image/icon/previous/previous.svg';
+import classNames from 'classnames';
 
-export const Pagination = ({ paginate, totalPaintings, countPaintings }) => {
+import nextButton from '../../assets/image/icon/nextButton/nextButton.svg';
+import previousButton from '../../assets/image/icon/previousButton/previousButton.svg';
+
+type PaginationProps = {
+	next: () => void;
+	prev: () => void;
+	paginate: (pageNumber: number) => void;
+	totalPaintings: number;
+	countPaintings: number;
+	currentPage: number;
+};
+
+export const Pagination: React.FC<PaginationProps> = ({
+	totalPaintings,
+	countPaintings,
+	currentPage,
+	paginate,
+	next,
+	prev,
+}) => {
 	const pageNumber = [];
-
 	const totalPages = Math.ceil(totalPaintings / countPaintings);
 
 	for (let i = 1; i <= totalPages; i++) {
@@ -14,28 +31,37 @@ export const Pagination = ({ paginate, totalPaintings, countPaintings }) => {
 
 	return (
 		<div className={styles.container}>
+			<button
+				className={classNames(styles.paginationButton, styles.arrow)}
+				onClick={prev}
+				disabled={currentPage === 1}
+			>
+				<img src={previousButton} alt="previous button" />
+			</button>
 			<ul className={styles.pagination}>
-				<a href="">
-					<img src={test2} alt="" />
-				</a>
 				{pageNumber.map((number, index) => (
-					<li className={styles.pageLink} key={index}>
-						<a
-							className={styles.test}
-							href="!#"
+					<li className={styles.paginationItem} key={index}>
+						<button
+							className={classNames(styles.paginationButton, {
+								[styles.paintingsButtonActive]: number === currentPage,
+							})}
 							onClick={(e) => {
 								e.preventDefault();
 								paginate(number);
 							}}
 						>
 							{number}
-						</a>
+						</button>
 					</li>
 				))}
-				<a href="">
-					<img src={test} alt="" />
-				</a>
 			</ul>
+			<button
+				className={classNames(styles.paginationButton, styles.arrow)}
+				onClick={next}
+				disabled={currentPage === totalPages}
+			>
+				<img src={nextButton} alt="next button" />
+			</button>
 		</div>
 	);
 };
