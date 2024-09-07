@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { TPainting } from './types/types';
 
 import { Gallery } from './Gallery/Gallery';
-import { Pagination } from '../Pagination/Pagination';
-import { Search } from '../Search/Search';
+import { Pagination } from './Pagination/Pagination';
+import { Search } from './Search/Search';
 
 export const Content = () => {
 	const [paintings, setPaintings] = useState<TPainting[]>([]);

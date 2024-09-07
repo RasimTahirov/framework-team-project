@@ -1,6 +1,6 @@
 import styles from './Index.module.scss';
 
-import search from '../../assets/image/icon/search/search.svg';
+import search from '../../../assets/image/icon/search/search.svg';
 import { useState } from 'react';
 
 export const Search = ({ onSearch }) => {

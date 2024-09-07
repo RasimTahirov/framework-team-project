@@ -1,3 +1,3 @@
 export { Header } from './Header/Header';
-export { Search } from './Search/Search';
-export { Content } from './Content/Content'
+export { Search } from './Content/Search/Search';
+export { Content } from './Content/Content';
