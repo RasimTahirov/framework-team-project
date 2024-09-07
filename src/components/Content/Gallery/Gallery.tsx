@@ -3,12 +3,21 @@ import styles from '../Index.module.scss';
 import { useEffect, useState } from 'react';
 
 import { getAuthors, getLocations, getPaintings } from '@/api/api';
+import { TPainting } from '../types/types';
 
 import AuthorAndMuseum from './components/AuthorAndMuseum';
 import TitleAndDate from './components/TitleAndDates';
 import Painting from './components/Painting';
 
-export const Gallery = ({ paintings, setPaintings }) => {
+type GalleryProps = {
+	paintings: TPainting[];
+	setPaintings: React.Dispatch<React.SetStateAction<TPainting[]>>;
+};
+
+export const Gallery: React.FC<GalleryProps> = ({
+	paintings,
+	setPaintings,
+}) => {
 	const [authors, setAuthors] = useState<Record<number, string>>([]);
 	const [locations, setLocations] = useState<Record<number, string>>([]);
 

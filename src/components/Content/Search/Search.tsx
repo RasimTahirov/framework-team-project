@@ -1,12 +1,17 @@
 import styles from './Index.module.scss';
 
-import search from '../../../assets/image/icon/search/search.svg';
 import { useState } from 'react';
 
-export const Search = ({ onSearch }) => {
+import search from '../../../assets/image/icon/search/search.svg';
+
+type SearchProps = {
+	onSearch: (searchValue: string) => void;
+};
+
+export const Search: React.FC<SearchProps> = ({ onSearch }) => {
 	const [value, setValue] = useState('');
 
-	const handleInputChange = (e) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const searchValue = e.target.value;
 		setValue(searchValue);
 		onSearch(searchValue);

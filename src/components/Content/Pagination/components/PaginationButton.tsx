@@ -1,7 +1,20 @@
 import styles from '../Index.module.scss';
+
 import classNames from 'classnames';
 
-const PaginationButton = ({ onClick, imgSrc, disabled, altText }) => {
+type PaginationButtonProps = {
+	onClick: () => void;
+	imgSrc: string;
+	disabled: boolean;
+	altText: string;
+};
+
+const PaginationButton: React.FC<PaginationButtonProps> = ({
+	onClick,
+	imgSrc,
+	disabled,
+	altText,
+}) => {
 	return (
 		<>
 			<button

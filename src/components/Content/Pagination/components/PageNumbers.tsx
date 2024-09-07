@@ -1,7 +1,18 @@
-import classNames from 'classnames';
 import styles from '../Index.module.scss';
 
-const PageNumbers = ({ pageNumber, paginate, currentPage }) => {
+import classNames from 'classnames';
+
+type PageNumbersProps = {
+	pageNumber: number[];
+	paginate: (number: number) => void;
+	currentPage: number;
+};
+
+const PageNumbers: React.FC<PageNumbersProps> = ({
+	pageNumber,
+	paginate,
+	currentPage,
+}) => {
 	return (
 		<>
 			<ul className={styles.pagination}>
